@@ -1,50 +1,27 @@
-# Job & Internship Tracker (v3 — Dark, Animated UI)
+# Job & Internship Tracker
 
-A Flask dashboard that pulls live job/internship listings from RemoteOK and
-Adzuna APIs, stores them in SQLite, and lets you filter and track your
-application status. Email/password auth with Flask-Login.
+A full-stack web application that pulls live job and internship listings from RemoteOK and Adzuna APIs, stores them in SQLite, and lets users track their application status. 
 
-## What's new in v3
+## 🚀 Live Demo
+**[Click here to view the live app!](https://job-tracker-app-qry5.onrender.com)**
 
-- Full dark theme with glassmorphism (frosted glass cards, blurred backgrounds)
-- Animated gradient mesh background that slowly drifts
-- Floating glowing orb particles
-- Cards fade/slide in on load, staggered for job listings
-- Hover lift effects and glow accents throughout
-- Same backend as v2 — this is a pure visual upgrade (no logic changes)
+*(Note: Because this is hosted on Render's free tier, it may take 30-50 seconds to "wake up" on the first visit).*
 
-## Setup
+## Features
+- **User Authentication:** Secure signup and login using Flask-Login and Werkzeug password hashing.
+- **Live Job Fetching:** Integrates with RemoteOK and Adzuna APIs to fetch real-time job listings.
+- **Category Filters:** Easily filter jobs by Tech, Non-Tech, or Design using the dynamic dashboard.
+- **Application Tracking:** Mark jobs as "Interested" or "Applied" and view stats on your dashboard.
+- **Modern UI:** Dark theme with glassmorphism, animated particle background, and hover effects.
 
-1. Open this folder in VS Code.
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. The `.env` file already has Adzuna API credentials filled in.
-4. Delete any old `jobs.db` from a previous version if it exists (schema
-   includes a `users` table with `email`).
-5. Fetch jobs:
-   ```
-   python fetch_jobs.py
-   ```
-6. Run:
-   ```
-   python app.py
-   ```
-7. Open `http://localhost:5000` → sign up → log in → enjoy the new look.
+## Tech Stack
+- **Backend:** Python, Flask, Flask-Login, Gunicorn
+- **Frontend:** HTML, CSS, JavaScript (Vanilla), Jinja2
+- **Database:** SQLite
+- **Deployment:** Render
 
-## Files
-
-- `app.py` — Flask routes and auth logic (unchanged from v2)
-- `database.py` — SQLite setup, user auth, job queries (unchanged from v2)
-- `fetch_jobs.py` — pulls listings from RemoteOK + Adzuna APIs (unchanged)
-- `templates/login.html` — dark animated login page
-- `templates/signup.html` — dark animated signup page with live password checklist
-- `templates/index.html` — dark animated dashboard
-- `.env` — API keys (never commit this — already in .gitignore)
-- `requirements.txt` — Python dependencies
-
-## Security note
-
-Before deploying or pushing to a public GitHub repo, change `app.secret_key`
-in `app.py` to a random, unique value via an environment variable.
+## Local Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/prakhar-d/job-tracker-app.git
+   
