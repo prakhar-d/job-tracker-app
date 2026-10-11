@@ -70,15 +70,16 @@ def signup():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form['email'].strip().lower()
+        # We use 'identifier' to accept either email or username
+        identifier = request.form['identifier'].strip()
         password = request.form['password']
 
-        user_row = verify_password(email, password)
+        user_row = verify_password(identifier, password)
         if user_row:
             login_user(User(user_row))
             return redirect(url_for('home'))
         else:
-            flash('Invalid email or password.')
+            flash('Invalid email/username or password.')
             return redirect(url_for('login'))
 
     return render_template('login.html')

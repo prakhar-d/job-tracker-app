@@ -71,8 +71,16 @@ def get_user_by_id(user_id):
     conn.close()
     return user
 
-def verify_password(email, password):
-    user = get_user_by_email(email)
+def verify_password(identifier, password):
+    """Checks if the identifier (email OR username) and password match."""
+    conn = sqlite3.connect(DB_NAME)
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+    # Check if the identifier matches the email OR the username
+    c.execute('SELECT * FROM users WHERE email = ? OR username = ?', (identifier, identifier))
+    user = c.fetchone()
+    conn.close()
+    
     if user and check_password_hash(user['password_hash'], password):
         return user
     return None
