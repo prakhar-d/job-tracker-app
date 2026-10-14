@@ -1,6 +1,6 @@
 # Job & Internship Tracker
 
-A full-stack web application that pulls live job and internship listings from RemoteOK and Adzuna APIs, stores them in SQLite, and lets users track their application status. 
+A full-stack web application that pulls live job and internship listings from RemoteOK and Adzuna APIs, stores them in a persistent PostgreSQL cloud database, and lets users track their application status. 
 
 ## 🚀 Live Demo
 **[Click here to view the live app!](https://job-tracker-app-qry5.onrender.com)**
@@ -17,11 +17,10 @@ A full-stack web application that pulls live job and internship listings from Re
 ## Tech Stack
 - **Backend:** Python, Flask, Flask-Login, Gunicorn
 - **Frontend:** HTML, CSS, JavaScript (Vanilla), Jinja2
-- **Database:** SQLite
+- **Database:** PostgreSQL (migrated from SQLite for cloud persistence)
 - **Deployment:** Render
 
 ## Local Setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/prakhar-d/job-tracker-app.git
-   
